@@ -18,7 +18,7 @@ function myObj(name, age, target){
 		myui.style.height = '30px'
 
 		var logo = getCell()
-		logo.innerHTML = "<img src='images/real-money-slot.jpg' height='30' onclick='alert(\""+msg+"\")'/>"
+		logo.innerHTML = "<img src='images/real-money-slot.jpg' height='30' onclick='getTargetText(\""+this.target+"\")'/>"
 
 		var content = getCell()
 		content.style.background='orange'
@@ -38,8 +38,10 @@ function myObj(name, age, target){
 }
 
 function getTargetText(target){
-	var article = $("."+className)[0]
-	return $(article).text()
+	var article = $("." + target)[0]
+	var text = $(article).text()
+	console.log(text)
+	return text
 }
 
 function getCell(){
