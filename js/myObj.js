@@ -1,6 +1,7 @@
-function myObj(name, age){
+function myObj(name, age, target){
 	this.name = name;
 	this.age = age;
+	this.target = target
 
 	this.sayHi = function(){
 		return 'hi everyone!!!';
@@ -30,6 +31,15 @@ function myObj(name, age){
 
 		body.appendChild(myui)
 	}
+	this.getText = function(className){
+		var article = $("."+className)[0]
+		alert($(article).text())
+	}
+}
+
+function getTargetText(target){
+	var article = $("."+className)[0]
+	return $(article).text()
 }
 
 function getCell(){
