@@ -11,12 +11,18 @@
 <p>The release train label (see below) is actually only used explicitly in one artifact: "spring-cloud-dependencies" (all the others have normal numeric release labels tied to their parent project). <img src='images/headerImg.jpg' height="30" /> The depednencies <b>POM</b> is the one you can use as a <code>BOM</code> for dependencymanagement. Example using the latest version with the config lientand eureka (change the artifact ids to pull in other starters):</p>
 </div>
 
+<p><font>点击图片同样会获取指定class的文本内容，并打印到console的log中。</font></p>
+
 <script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
 <!-- <script type="text/javascript" src='js/slot.js'></script> -->
 <script type="text/javascript" src='js/myObj.js'></script>
 <script type="text/javascript">
-	var myTester = new myObj("royals", 26, "article")
-	// alert(myTester.sayHi())
-	myTester.show("我的家在东北")
-	// myTester.getText("article")
+	//该部分放到document末尾就是加载好文档之后执行
+	//使用window.onload确保函数内容必须在document加载完成之后执行
+	window.onload = function(){
+		var myTester = new myObj("royals", 26, "article")
+		// alert(myTester.sayHi())
+		myTester.show("我的家在东北")
+		myTester.getText("article") //立即执行article文本内容的获取
+	}
 </script>

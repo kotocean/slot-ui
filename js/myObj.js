@@ -31,10 +31,7 @@ function myObj(name, age, target){
 
 		body.appendChild(myui)
 	}
-	this.getText = function(className){
-		var article = $("."+className)[0]
-		alert($(article).text())
-	}
+	this.getText = getTargetText
 }
 
 function getTargetText(target){
