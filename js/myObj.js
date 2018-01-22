@@ -1,43 +1,53 @@
 function myObj(name, age, target){
 	this.name = name;
 	this.age = age;
-	this.target = target
+	this.targetElement = $(target)
+	if(this.targetElement instanceof Array){
+		this.targetElement = this.targetElement[0]
+	}
 
 	this.sayHi = function(){
 		return 'hi everyone!!!';
 	}
-	this.show = function(msg){
+	this.show = function(msg, img_src){
 		console.log(msg)
 		var myui = document.createElement("div")
-		var body = document.getElementsByTagName("body")[0]
 
-		myui.style.position = 'absolute'
-		myui.style.right = '3px'
-		myui.style.bottom = '60px'
 		myui.style.display = 'table'
 		myui.style.height = '30px'
 
 		var logo = getCell()
-		logo.innerHTML = "<img src='images/real-money-slot.jpg' height='30' onclick='getTargetText(\""+this.target+"\")'/>"
-
+		var img = document.createElement("img")
+		img.style.height = '30px'
+		img.src = img_src
+		$(img).on('click', function(){
+			getTargetText(target)
+		})
+		logo.append(img);
+		
 		var content = getCell()
+		content.style.height = '30px'
 		content.style.background='orange'
 		content.style.paddingLeft='3px'
 		content.style.paddingRight='3px'
-		content.innerHTML = "<span>"+this.name+"&nbsp;"+this.age+"</span>"
+		content.innerHTML = this.name+"&nbsp;"+this.age;
 
 		myui.appendChild(logo)
 		myui.appendChild(content)
 
-		body.appendChild(myui)
+		$(this.targetElement).prepend(myui);
 	}
 	this.getText = getTargetText
 }
 
 function getTargetText(target){
-	var article = $("." + target)[0]
-	var text = $(article).text()
+	var target = $(target)
+	if(target instanceof Array){
+		target = target[0]
+	}
+	var text = $(target).text()
 	console.log(text)
+	// console.log(target)
 	return text
 }
 
