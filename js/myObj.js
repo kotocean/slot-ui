@@ -1,3 +1,5 @@
+var ui_height='60px'
+
 function myObj(name, age, target){
 	this.name = name;
 	this.age = age;
@@ -14,11 +16,11 @@ function myObj(name, age, target){
 		var myui = document.createElement("div")
 
 		myui.style.display = 'table'
-		myui.style.height = '30px'
+		myui.style.height = ui_height
 
 		var logo = getCell()
 		var img = document.createElement("img")
-		img.style.height = '30px'
+		img.style.height = ui_height
 		img.src = img_src
 		$(img).on('click', function(){
 			getTargetText(target)
@@ -26,10 +28,10 @@ function myObj(name, age, target){
 		logo.append(img);
 		
 		var content = getCell()
-		content.style.height = '30px'
+		content.style.height = ui_height
 		content.style.background='orange'
 		content.style.paddingLeft='3px'
-		content.style.paddingRight='3px'
+		content.style.paddingRight='10px'
 		content.innerHTML = this.name+"&nbsp;"+this.age;
 
 		myui.appendChild(logo)
